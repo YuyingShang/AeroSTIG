@@ -1,0 +1,94 @@
+enable_xformers_memory_efficient_attention: true
+inference_config:
+  diversity_rand_ratio: 0.1
+mixed_precision: fp16
+output_dir_origin: ./output/winter
+pretrained_model_path: ./pretrained_ckpt/stable-diffusion-v1-5
+seed: 42
+validation_data:
+  attention_adapt_step: 50
+  attention_type_former:
+  - self
+  - first
+  - former
+  attention_type_latter:
+  - self
+  guidance_scale: 5.5
+  height: 512
+  use_inv_latent: true
+  width: 512
+  interpolate_k: 0
+  negative_prompt: longbody, lowres, bad anatomy, bad hands, missing fingers, extra
+    digit, fewer difits, cropped, worst quality, low quality, deformed body, bloated,
+    ugly, unrealistic
+  num_inference_steps: 50
+  num_inv_steps: 50
+  
+  t1: 48
+  binding_steps: 30
+  num_intervention_steps: 50
+  gome: 'yes'
+  noise_sampling_method:  vanilla #pyoco_mixed, pyoco_progressive
+
+  test_dataset:
+    '1':
+      Visual elaboration: 'Generate a video that illustrates the season changing from
+        autumn to winter: The scene is located in a desert region, characterized by arid, 
+        sandy terrain with sparse vegetation. The central focus is a rectangular, 
+        grid-like settlement or industrial complex, surrounded by undeveloped land.'
+      name: '1'
+      prompts:
+      - 'An aerial view: Desert region, grid-like complex, arid terrain, curved
+        roadways, and circular structures under a warm, golden autumn sun with dry,
+        sparse vegetation.'
+      - 'An aerial view: Desert region, grid-like complex, arid terrain, curved
+        roadways, and circular structures under a hazy, orange autumn light with cooling,
+        sparse vegetation.'
+      - 'An aerial view: Desert region, grid-like complex, arid terrain, curved
+        roadways, and circular structures under a grey, overcast autumn sky with brittle,
+        sparse vegetation.'
+      - 'An aerial view: Desert region, grid-like complex, arid terrain, curved
+        roadways, and circular structures under a cold autumn wind with frost-covered,
+        sparse vegetation.'
+      - 'An aerial view: Desert region, grid-like complex, arid terrain, curved
+        roadways, and circular structures under a pale winter sky with light frost on
+        sparse vegetation.'
+      - 'An aerial view: Desert region, grid-like complex, arid terrain, curved
+        roadways, and circular structures under a chilling winter mist with frozen,
+        sparse vegetation.'
+      - 'An aerial view: Desert region, grid-like complex, arid terrain, curved
+        roadways, and circular structures dusted by light flurries of cold winter snow.'
+      - 'An aerial view: Desert region, grid-like complex, arid terrain, curved
+        roadways, and circular structures blanketed under a thick, white layer of winter
+        snow.'
+    '2':
+      Visual elaboration: 'Generate a video that illustrates a snowing night: 
+        A dense urban environment during twilight. The scene features a grid-like 
+        layout of multi-story buildings with classical architectural styles, 
+        including ornate facades, arched windows, and varied rooflines.'
+      name: '2'
+      prompts:
+      - 'An aerial view: Dense urban environment, grid layout, classical multi-story
+        buildings, ornate facades, arched windows, varied rooflines under a warm golden 
+        twilight sky.'
+      - 'An aerial view: Dense urban environment, grid layout, classical multi-story
+        buildings, ornate facades, arched windows, varied rooflines during a chilly,
+        amber-tinted twilight.'
+      - 'An aerial view: Dense urban environment, grid layout, classical multi-story
+        buildings, ornate facades, arched windows, varied rooflines during a frost-covered,
+        grey-tinted twilight.'
+      - 'An aerial view: Dense urban environment, grid layout, classical multi-story
+        buildings, ornate facades, arched windows, varied rooflines during a freezing,
+        sharp-aired early winter twilight.'
+      - 'An aerial view: Dense urban environment, grid layout, classical multi-story
+        buildings, ornate facades, arched windows, varied rooflines during a winter
+        twilight with light falling snow.'
+      - 'An aerial view: Dense urban environment, grid layout, classical multi-story
+        buildings, ornate facades, arched windows, varied rooflines during a snowy winter
+        twilight with white-capped roofs.'
+      - 'An aerial view: Dense urban environment, grid layout, classical multi-story
+        buildings, ornate facades, arched windows, varied rooflines during a heavy,
+        blizzard-streaked deep winter twilight.'
+      - 'An aerial view: Dense urban environment, grid layout, classical multi-story
+        buildings, ornate facades, arched windows, varied rooflines during a freezing,
+        ice-slicked late winter twilight.'

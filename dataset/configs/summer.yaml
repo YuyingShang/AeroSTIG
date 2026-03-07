@@ -1,0 +1,97 @@
+enable_xformers_memory_efficient_attention: true
+inference_config:
+  diversity_rand_ratio: 0.1
+mixed_precision: fp16
+output_dir_origin: ./output/summer
+pretrained_model_path: ./pretrained_ckpt/stable-diffusion-v1-5
+seed: 42
+validation_data:
+  attention_adapt_step: 50
+  attention_type_former:
+  - self
+  - first
+  - former
+  attention_type_latter:
+  - self
+  guidance_scale: 7.5
+  height: 512
+  use_inv_latent: true
+  width: 512
+  interpolate_k: 0
+  negative_prompt: longbody, lowres, bad anatomy, bad hands, missing fingers, extra
+    digit, fewer difits, cropped, worst quality, low quality, deformed body, bloated,
+    ugly, unrealistic
+  num_inference_steps: 50
+  num_inv_steps: 50
+  
+  t1: 48
+  binding_steps: 30
+  num_intervention_steps: 50
+  gome: 'yes'
+  noise_sampling_method:  vanilla #pyoco_mixed, pyoco_progressive
+
+  test_dataset:
+    '1':
+      Visual elaboration: 'Generate a video that illustrates the season changing from
+        summer to autumn: The video presents an aerial view of a coastal urban area
+        under clear skies. The scene includes a prominent rocky peninsula extending
+        into the ocean, with a circular, flat-topped structure at its tip, likely a
+        historical fortification or observation platform.'
+      name: '1'
+      prompts:
+      - 'A high-angle drone shot: Aerial view of coastal urban area, clear skies, rocky
+        peninsula in ocean, circular flat-topped structure at tip, with lush, vibrant
+        summer vegetation.'
+      - 'A high-angle drone shot: Aerial view of coastal urban area, clear skies, rocky
+        peninsula in ocean, circular flat-topped structure at tip, with dense green
+        foliage and hot sun.'
+      - 'A high-angle drone shot: Aerial view of coastal urban area, clear skies, rocky
+        peninsula in ocean, circular flat-topped structure at tip, with dark green leaves
+        and summer warmth.'
+      - 'A high-angle drone shot: Aerial view of coastal urban area, clear skies, rocky
+        peninsula in ocean, circular flat-topped structure at tip, with green leaves
+        and yellow autumn tints.'
+      - 'A high-angle drone shot: Aerial view of coastal urban area, clear skies, rocky
+        peninsula in ocean, circular flat-topped structure at tip, with golden yellow
+        foliage and autumn colors.'
+      - 'A high-angle drone shot: Aerial view of coastal urban area, clear skies, rocky
+        peninsula in ocean, circular flat-topped structure at tip, with vibrant orange
+        leaves and cooling air.'
+      - 'A high-angle drone shot: Aerial view of coastal urban area, clear skies, rocky
+        peninsula in ocean, circular flat-topped structure at tip, with dry brown leaves
+        scattered by wind.'
+      - 'A high-angle drone shot: Aerial view of coastal urban area, clear skies, rocky
+        peninsula in ocean, circular flat-topped structure at tip, with sparse brown
+        branches in autumn air.'
+    '2':
+      Visual elaboration: 'Generate a video that illustrates the season changing from
+        summer to autumn: The video presents an aerial view of a coastal urban area
+        bordered by large rock formations and a wide bay. The scene includes a prominent,
+        steep-sided mountain on the left, with two adjacent rocky hills to the right,
+        all partially covered in green vegetation.'
+      name: '2'
+      prompts:
+      - The video presents an aerial view of a coastal urban area, large rock formations,
+        wide bay, steep mountain, two rocky hills, covered in lush, vibrant green summer
+        vegetation.
+      - The video presents an aerial view of a coastal urban area, large rock formations,
+        wide bay, steep mountain, two rocky hills, covered in dense, dark vegetation
+        under summer sun.
+      - The video presents an aerial view of a coastal urban area, large rock formations,
+        wide bay, steep mountain, two rocky hills, covered in green vegetation with
+        subtle autumn tints.
+      - The video presents an aerial view of a coastal urban area, large rock formations,
+        wide bay, steep mountain, two rocky hills, covered in yellow vegetation with
+        first autumn hints.
+      - The video presents an aerial view of a coastal urban area, large rock formations,
+        wide bay, steep mountain, two rocky hills, covered in orange vegetation under
+        warm autumn sun.
+      - The video presents an aerial view of a coastal urban area, large rock formations,
+        wide bay, steep mountain, two rocky hills, covered in golden vegetation during
+        crisp autumn days.
+      - The video presents an aerial view of a coastal urban area, large rock formations,
+        wide bay, steep mountain, two rocky hills, covered in red vegetation under a
+        grey autumn sky.
+      - The video presents an aerial view of a coastal urban area, large rock formations,
+        wide bay, steep mountain, two rocky hills, covered in brown, withered, dry autumn
+        vegetation.

@@ -1,0 +1,80 @@
+enable_xformers_memory_efficient_attention: true
+inference_config:
+  diversity_rand_ratio: 0.1
+mixed_precision: fp16
+output_dir_origin: ./output/light
+pretrained_model_path: ./pretrained_ckpt/stable-diffusion-v1-5
+seed: 42
+validation_data:
+  attention_adapt_step: 50
+  attention_type_former:
+  - self
+  - first
+  - former
+  attention_type_latter:
+  - self
+  guidance_scale: 7.5
+  height: 512
+  use_inv_latent: true
+  width: 512
+  interpolate_k: 0
+  negative_prompt: longbody, lowres, bad anatomy, bad hands, missing fingers, extra
+    digit, fewer difits, cropped, worst quality, low quality, deformed body, bloated,
+    ugly, unrealistic
+  num_inference_steps: 50
+  num_inv_steps: 50
+  
+  t1: 48
+  binding_steps: 30
+  num_intervention_steps: 50
+  gome: 'yes'
+  noise_sampling_method:  vanilla #pyoco_mixed, pyoco_progressive
+
+  test_dataset:
+    '1':
+      Visual elaboration: 'Generate a video that illustrates the changing lighting at
+        dawn: The video presents an aerial view of a dense urban skyline during sunset.
+        The scene spans a wide metropolitan area with numerous high-rise buildings,
+        including several prominent skyscrapers with distinct architectural features.'
+      name: '1'
+      prompts:
+      - An aerial view of a dense urban skyline with high-rise buildings under bright,
+        golden late afternoon light.
+      - An aerial view of a dense urban skyline with high-rise buildings bathed in warm,
+        soft amber sunset light.
+      - An aerial view of a dense urban skyline with high-rise buildings glowing in
+        rich orange sunset light.
+      - An aerial view of a dense urban skyline with high-rise buildings illuminated
+        by deep red sunset light.
+      - An aerial view of a dense urban skyline with high-rise buildings draped in soft
+        violet twilight shadows.
+      - An aerial view of a dense urban skyline with high-rise buildings submerged in
+        cool indigo dusk light.
+      - An aerial view of a dense urban skyline with high-rise buildings settling into
+        dark blue evening light.
+      - An aerial view of a dense urban skyline with high-rise buildings visible against
+        a black night sky.
+    '2':
+      Visual elaboration: 'Generate a video that illustrates the changing lighting at
+        dawn: The video presents an aerial view of a coastal urban area during twilight.
+        The scene spans a wide expanse, showing a long, curved beach bordered by the
+        ocean on one side and a densely built-up area on the other.'
+      name: '2'
+      prompts:
+      - An aerial view of a coastal urban area with a long curved beach and densely
+        built-up area under fading golden sunlight.
+      - An aerial view of a coastal urban area with a long curved beach and densely
+        built-up area bathing in soft amber light.
+      - An aerial view of a coastal urban area with a long curved beach and densely
+        built-up area amidst dusty pink twilight.
+      - An aerial view of a coastal urban area with a long curved beach and densely
+        built-up area glowing with vivid purple hues.
+      - An aerial view of a coastal urban area with a long curved beach and densely
+        built-up area submerged in deep blue tones.
+      - An aerial view of a coastal urban area with a long curved beach and densely
+        built-up area shifting to cool indigo shadow.
+      - An aerial view of a coastal urban area with a long curved beach and densely
+        built-up area dimly lit by heavy dusk.
+      - An aerial view of a coastal urban area with a long curved beach and densely
+        built-up area fading into dark night darkness.
+
